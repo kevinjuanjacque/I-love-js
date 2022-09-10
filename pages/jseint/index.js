@@ -28,7 +28,71 @@ export default function JSeint() {
             setTextConsole(value);
         };
     }, []);
+    const direction = false;
+    return (
+        <div className=" h-[75vh] flex bg-fifth">
+            <Split
+                className={
+                    direction
+                        ? ' split min-h-screen w-screen bg-secondary '
+                        : '  h-full w-screen bg-secondary '
+                }
+                direction={direction ? 'horizontal' : 'vertical'}
+            >
+                <Editor
+                    className="h-full "
+                    theme="vs-dark"
+                    defaultLanguage="javascript"
+                    defaultValue={'//Escribe tu codigo Españolisimo aqui'}
+                    options={{
+                        fontSize: 20,
+                        padding: {
+                            top: 20
+                        },
+                        minimap: {
+                            enabled: false
+                        },
+                        automaticLayout: true,
+                        renderValidationDecorations: 'off'
+                    }}
+                    onChange={async (value) => {
+                        try {
+                            console.logs = [];
+                            const newValue = transpilar(value);
+                            const x = `try{${newValue}}catch(e){console.log(e)}`;
+                            const script = document.createElement('script');
+                            script.textContent = x;
+                            script.type = 'text/javascript';
+                            new Function(x)();
+                            script.remove();
+                        } catch (error) {
+                            console.log(error);
+                        }
+                    }}
+                />
 
+                <Editor
+                    options={{
+                        readOnly: true,
+                        fontSize: 20,
+                        lineNumbers: 'off',
+                        padding: {
+                            top: 20
+                        },
+                        automaticLayout: true,
+                        minimap: {
+                            enabled: false
+                        }
+                    }}
+                    theme="vs-dark"
+                    defaultLanguage="javascript"
+                    onMount={handleEditorDidMount}
+                    onChange={async (value) => {}}
+                    defaultValue={'//La funcion Escribir() se imprimira aca'}
+                ></Editor>
+            </Split>
+        </div>
+    );
     return (
         <div className="h-[75vh]">
             <Split className="  split flex h-full w-screen bg-secondary ">

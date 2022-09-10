@@ -9,9 +9,9 @@ import { useApp } from '../../src/context/state';
 console.logs = [];
 
 const classTabActive =
-    'border-2  border-fifth w-full lg:w-30 border-b-primary border-l-secondary border-r-secondary h-auto  pl-2 pr-2 bg-fifth text-primary flex items-center justify-between';
+    'border-2  border-fifth w-full lg:w-30 border-b-primary lg:h-full border-l-secondary border-r-secondary h-auto  pl-2 pr-2 bg-fifth text-primary flex items-center justify-between';
 const classTabInactive =
-    'border-2  border-fifth w-full lg:w-30  h-auto pl-2 pr-2 bg-tertiary text-slate-500 flex items-center justify-between';
+    'border-2  border-fifth w-full lg:w-30 h-auto lg:h-full pl-2 pr-2 bg-tertiary text-slate-500 flex items-center justify-between';
 
 export default function ExecuteJs() {
     const { Tabs, ReorderTabs, IndexTabActive, ChangeTabActive, AddTab } =

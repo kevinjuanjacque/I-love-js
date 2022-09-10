@@ -18,12 +18,25 @@ const replacePara = (str) => {
         return m.replace('Para', 'for(').replace('En', 'of').replace('{', '){');
     });
 };
+const replaceSi = (str) => {
+    //(?<![a-z] |'|[a-zA-Z0-9]|"|\W)Para\s.*En\s.*\{
+    return str.replace(/(?<![a-z] |'|[a-zA-Z0-9]|")Si .*\{/g, (m, g1) => {
+        return m.replace('Si', 'if(').replace('{', '){');
+    });
+};
+const replaceSino = (str) => {
+    //(?<![a-z] |'|[a-zA-Z0-9]|"|\W)Para\s.*En\s.*\{
+    return str.replace(/(?<![a-z] |'|[a-zA-Z0-9]|")Si.*\{/g, (m, g1) => {
+        return m.replace('Sino', 'else');
+    });
+};
 
 const transpilar = (str) => {
     let newStr = replaceEscribir(str);
     newStr = replaceVar(newStr);
     newStr = replacePara(newStr);
-    console.warn(newStr);
+    newStr = replaceSi(newStr);
+    newStr = replaceSino(newStr);
     return newStr;
 };
 

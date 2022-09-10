@@ -1,8 +1,10 @@
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import dracula from 'prism-react-renderer/themes/dracula';
+import { Element } from 'react-scroll';
+
 const ItemDoc = ({ title, body, code }) => {
     return (
-        <>
+        <div id={title}>
             <h1 className="text-5xl font-serif text-center  pt-5">{title}</h1>
             <p className=" text-justify text-xl p-10">{body}</p>
             <div className="p-2 ">
@@ -40,7 +42,7 @@ const ItemDoc = ({ title, body, code }) => {
                     )}
                 </Highlight>
             </div>
-        </>
+        </div>
     );
 };
 
