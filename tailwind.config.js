@@ -21,7 +21,8 @@ module.exports = {
             }
         },
         animation: {
-            'navbar-transition': 'navbar-transition 0.2s ease-out forwards '
+            'navbar-transition': 'navbar-transition 0.2s ease-out forwards ',
+            'moving-background': 'moving-background 5s ease-in-out infinite'
         },
         keyframes: {
             'navbar-transition': {
@@ -30,6 +31,19 @@ module.exports = {
                 },
                 to: {
                     transform: 'translateY(0%)'
+                }
+            },
+            'moving-background': {
+                '0%': {
+                    opacity: 0
+                },
+                '66%': {
+                    opacity: 0.5,
+                    transform: 'translateY(-500px)'
+                },
+                '100%': {
+                    transform: 'translateY(-100px)',
+                    opacity: 0
                 }
             }
         }

@@ -10,16 +10,20 @@ const arrayMenuNav = [
         link: '/'
     },
     {
-        title: 'Otro',
-        link: '/'
+        title: 'Docs',
+        link: '/jseint/docs'
     },
     {
         title: 'ExecuteJS!',
         link: '/execute-js'
+    },
+    {
+        title: 'JSeint',
+        link: '/jseint'
     }
 ];
 export default function NavBar() {
-    const [OpenNav, setOpenNav] = useState(true);
+    const [OpenNav, setOpenNav] = useState(false);
     return (
         <>
             <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-js animate-navbar-transition">
@@ -89,7 +93,6 @@ export default function NavBar() {
                                         height: 0,
                                         transition: { duration: 0.5 }
                                     }}
-                                    data-isOpen={OpenNav}
                                     className={'flex  rounded-lg '}
                                 >
                                     {arrayMenuNav.map((item, index) => (
@@ -144,7 +147,6 @@ export default function NavBar() {
                                             height: 0,
                                             transition: { duration: 0.5 }
                                         }}
-                                        data-isOpen={OpenNav}
                                         className={
                                             'flex-col md:flex  rounded-lg '
                                         }
@@ -169,6 +171,13 @@ export default function NavBar() {
                                             >
                                                 <Link href={item.link}>
                                                     <a
+                                                        onClick={() => {
+                                                            if (OpenNav) {
+                                                                setOpenNav(
+                                                                    false
+                                                                );
+                                                            }
+                                                        }}
                                                         className=" block py-2 pr-4 pl-3 text-black rounded-lg hover:bg-gray-900 hover:text-white "
                                                         aria-current="page"
                                                     >
