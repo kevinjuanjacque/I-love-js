@@ -10,12 +10,12 @@ const arrayMenuNav = [
         link: '/'
     },
     {
-        title: 'Docs',
-        link: '/jseint/docs'
-    },
-    {
         title: 'ExecuteJS!',
         link: '/execute-js'
+    },
+    {
+        title: 'Docs JSeint',
+        link: '/jseint/docs'
     },
     {
         title: 'JSeint',
