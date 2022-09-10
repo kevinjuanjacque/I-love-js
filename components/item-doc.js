@@ -1,6 +1,5 @@
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import dracula from 'prism-react-renderer/themes/dracula';
-import { Element } from 'react-scroll';
 
 const ItemDoc = ({ title, body, code }) => {
     return (
