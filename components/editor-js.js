@@ -23,7 +23,7 @@ export default function EditorJS({ index, direction }) {
         console.stdlog = console.log.bind(console);
         console.log = function () {
             console.logs.push(Array.from(arguments));
-            ChangeTextConsole(value, IndexTabActive);
+            ChangeTextConsole(JSON.stringify(value), IndexTabActive);
             const value = console.logs.map((log) => log.join(' ')).join('\n');
             editorRef.current.setValue(value);
         };
@@ -87,7 +87,7 @@ export default function EditorJS({ index, direction }) {
                     defaultLanguage="javascript"
                     onMount={handleEditorDidMount}
                     onChange={async (value) => {
-                        await ChangeTextConsole(index, JSON.stringify(value));
+                        await ChangeTextConsole(index, value);
                     }}
                     defaultValue={textConsole}
                 ></Editor>

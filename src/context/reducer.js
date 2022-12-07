@@ -3,7 +3,7 @@ export const initialTabs = {
         {
             name: 'index.js',
             textEditor: '// Write your code here',
-            textConsole: '// Console'
+            textConsole: '// TEXT 2 Console'
         }
     ],
     IndexTabActive: 0
