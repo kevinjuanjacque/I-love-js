@@ -87,7 +87,7 @@ export default function EditorJS({ index, direction }) {
                     defaultLanguage="javascript"
                     onMount={handleEditorDidMount}
                     onChange={async (value) => {
-                        await ChangeTextConsole(index, value);
+                        await ChangeTextConsole(index, JSON.stringify(value));
                     }}
                     defaultValue={textConsole}
                 ></Editor>
