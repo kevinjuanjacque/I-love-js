@@ -23,8 +23,15 @@ export default function EditorJS({ index, direction }) {
         console.stdlog = console.log.bind(console);
         console.log = function () {
             console.logs.push(Array.from(arguments));
-            ChangeTextConsole(JSON.stringify(value), IndexTabActive);
-            const value = console.logs.map((log) => log.join(' ')).join('\n');
+            const value = console.logs.map((log) => log.map(arg => {
+                console.warn({ type: typeof arg, value: arg });
+                if (typeof arg === 'object' && !arg.message) {
+                    return JSON.stringify(arg);
+                 }
+                return arg
+            }).join(' ')).join('\n');
+            ChangeTextConsole(value, IndexTabActive);
+
             editorRef.current.setValue(value);
         };
     }, [ChangeTextConsole, IndexTabActive]);

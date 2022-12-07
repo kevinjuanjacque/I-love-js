@@ -36,8 +36,6 @@ export const AppReducer = (state, action) => {
                 })
             };
         case 'CHANGE_TEXT_CONSOLE':
-            console.warn(action.payload);
-
             return {
                 ...state,
                 Tabs: state.Tabs.map((tab, index) => {
