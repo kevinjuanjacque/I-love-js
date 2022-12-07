@@ -15,7 +15,7 @@ export function AppWrapper({ children }) {
             payload: {
                 name: 'index-' + auxFile.slice(-5),
                 textEditor: '// Write your code here',
-                textConsole: '// Console'
+                textConsole: '// TEXT Console'
             }
         });
     };
