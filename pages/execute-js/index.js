@@ -9,7 +9,7 @@ import { useApp } from '../../src/context/state';
 console.logs = [];
 
 const classTabActive =
-    'border-2  border-fifth w-full lg:w-30 border-b-primary lg:h-full border-l-secondary border-r-secondary h-auto  pl-2 pr-2 bg-fifth text-primary flex items-center justify-between';
+    'border-2  border-fifth w-full lg:w-30  lg:h-full border-l-secondary border-r-secondary h-auto  pl-2 pr-2 bg-fifth text-white flex items-center justify-between';
 const classTabInactive =
     'border-2  border-fifth w-full lg:w-30 h-auto lg:h-full pl-2 pr-2 bg-tertiary text-slate-500 flex items-center justify-between';
 
@@ -19,18 +19,21 @@ export default function ExecuteJs() {
 
     const setTabs = async (tabs) => {
         await ReorderTabs(tabs);
+
     };
 
     const setTabActive = async (index) => {
         await ChangeTabActive(index);
     };
 
+
+
     return (
         <>
             <div className="  bg-fifth hidden lg:grid">
                 <Reorder.Group
                     as="div"
-                    className="h-10 flex"
+                    className="h-12 flex"
                     axis="x"
                     values={Tabs}
                     onReorder={setTabs}
@@ -65,13 +68,13 @@ export default function ExecuteJs() {
                                     }}
                                     className="flex items-center md:w-full"
                                 >
-                                    <div className=" hidden mr-1 lg:block">
+                                    <div className=" hidden mr-3 lg:block">
                                         <SvgJS width={20} />
                                     </div>
                                     {tab.name}
                                 </div>
                                 <button
-                                    className="ml-2"
+                                    className="ml-2 "
                                     onClick={() => {
                                         if (Tabs.length === 1) {
                                             return;
@@ -85,7 +88,9 @@ export default function ExecuteJs() {
                                         setTabs(newTabs);
                                     }}
                                 >
-                                    ⚔
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-x" viewBox="0 0 16 16">
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                                    </svg>
                                 </button>
                             </motion.div>
                         </Reorder.Item>

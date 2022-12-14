@@ -88,6 +88,7 @@
     background-color: black;
     transform: rotate(30deg);
     z-index: 12;
+
 }
 .color:nth-child(2):after {
     background-color: black;

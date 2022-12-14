@@ -49,6 +49,7 @@ export function AppWrapper({ children }) {
     };
 
     const ChangeTextConsole = (index, text) => {
+
         dispatch({
             type: 'CHANGE_TEXT_CONSOLE',
             payload: {

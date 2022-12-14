@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const arrayMenuNav = [
     {
@@ -10,7 +11,7 @@ const arrayMenuNav = [
         link: '/'
     },
     {
-        title: 'ExecuteJS!',
+        title: 'Run JS!',
         link: '/execute-js'
     },
     {
@@ -23,7 +24,11 @@ const arrayMenuNav = [
     }
 ];
 export default function NavBar() {
+    const { pathname } = useRouter();
     const [OpenNav, setOpenNav] = useState(false);
+    if (pathname === '/execute-js') return <>
+    <Link href={'/'}><button className='absolute transition-all opacity-40 hover:opacity-100 hover: rounded-full h-20 w-20 bg-black text-white z-50 right-10 top-10'>{'←'}</button></Link>
+    </>;
     return (
         <>
             <nav className=" border-gray-200 px-2 sm:px-4 py-2.5 bg-js animate-navbar-transition">

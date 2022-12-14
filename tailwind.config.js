@@ -12,7 +12,7 @@ module.exports = {
                 secondary: '#141519',
                 tertiary: '#323651',
                 fourth: '#DADDDB',
-                fifth: '#262D41'
+                fifth: '#282936'
             },
             tab: {
                 active: 'border-2 w-1/4 border-fifth h-full pl-2 pr-2 bg-tertiary text-primary',
